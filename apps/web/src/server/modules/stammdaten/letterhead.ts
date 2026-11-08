@@ -18,8 +18,8 @@ export async function loadDesign(q: Db | Tx = db): Promise<LetterheadDesign> {
 }
 
 function letterheadFrom(design: LetterheadDesign, logo: Logo | undefined): Letterhead {
-  const { accent, logoSize, logoPosition, foldMarks, giroCode, customerNumber, vatColumn } = design;
-  return { accent, options: { logoSize, logoPosition, foldMarks, giroCode, customerNumber, vatColumn }, ...(logo ? { logo } : {}) };
+  const { accent, logoSize, logoPosition, foldMarks, giroCode, customerNumber, vatColumn, footerColumns } = design;
+  return { accent, options: { logoSize, logoPosition, foldMarks, giroCode, customerNumber, vatColumn, footerColumns }, ...(logo ? { logo } : {}) };
 }
 
 export interface DocumentLook {

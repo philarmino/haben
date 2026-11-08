@@ -861,3 +861,8 @@ summary { cursor: pointer; min-height: 24px; }
   .preview-dialog-main[data-design] > .sheet-frame { flex: 0 0 32dvh; }
   .design-panel { flex: 1 1 auto; border-left: 0; border-top: 1px solid var(--line); }
 }
+.footer-columns { display: grid; gap: 10px; }
+.footer-columns textarea { min-width: 0; font-size: 12px; line-height: 1.5; resize: vertical; }
+.footer-chips { display: flex; flex-wrap: wrap; align-items: center; gap: 6px; }
+.footer-chips .btn { font-size: 12px; }
+.footer-preview { font-size: 12px; line-height: 1.45; color: var(--muted); overflow-wrap: anywhere; }

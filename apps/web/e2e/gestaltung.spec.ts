@@ -188,3 +188,34 @@ test("Spalte Gestaltung ohne Befund von axe", async ({ browser }) => {
   expect(violations.map((v) => v.id)).toEqual([]);
   await page.context().close();
 });
+
+test("Eigene Fußzeile: Platzhalter, Prüfung und Übernahme aufs Blatt", async ({ browser }) => {
+  const page = await editor(browser, BREIT);
+  await page.goto("/einstellungen?bereich=gestaltung");
+  await page.waitForLoadState("networkidle");
+  const karte = page.getByRole("region", { name: "Fußzeile" });
+  await karte.getByLabel("Eigene Fußzeile").check();
+  await karte.getByRole("button", { name: "4 Spalten" }).click();
+
+  await karte.getByLabel("Spalte 4").fill("{fax}");
+  await expect(karte.getByRole("alert")).toContainText("{fax}");
+  await expect(karte.getByRole("button", { name: "Fußzeile speichern" })).toBeDisabled();
+
+  await karte.getByLabel("Spalte 4").fill("Sprechzeiten Mo bis Fr ");
+  await karte.getByRole("button", { name: "{email}" }).click();
+  await expect(karte.getByLabel("Spalte 4")).toHaveValue(/\{email\}/);
+  await karte.getByRole("button", { name: "Fußzeile speichern" }).click();
+  await expect(karte.getByRole("status").last()).toContainText("Fußzeile gespeichert");
+
+  await page.goto("/rechnungen/neu");
+  await page.waitForLoadState("networkidle");
+  await vorschauKnopf(page).click();
+  await expect(blatt(page).locator(".sheet-foot")).toContainText("Sprechzeiten Mo bis Fr");
+
+  await page.goto("/einstellungen?bereich=gestaltung");
+  await page.waitForLoadState("networkidle");
+  await karte.getByLabel("Eigene Fußzeile").uncheck();
+  await karte.getByRole("button", { name: "Fußzeile speichern" }).click();
+  await expect(karte.getByRole("status").last()).toContainText("Fußzeile gespeichert");
+  await page.context().close();
+});

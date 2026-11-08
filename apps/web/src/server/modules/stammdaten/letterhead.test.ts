@@ -76,6 +76,14 @@ describe.skipIf(!testDatabaseUrl)("Briefkopf und Standardprofil (Postgres)", () 
     expect(await sql`select 1 from letterhead_profiles`).toHaveLength(0);
   });
 
+  it("speichert eine eigene Fußzeile und lehnt unbekannte Platzhalter ab", async () => {
+    await letterhead.saveDesign(actor, { footerColumns: ["{firma}", "{email}"] });
+    expect((await letterhead.loadLetterhead()).options?.footerColumns).toEqual(["{firma}", "{email}"]);
+    await expect(letterhead.saveDesign(actor, { footerColumns: ["{fax}", "{email}"] })).rejects.toThrow(/ungültig/);
+    await letterhead.saveDesign(actor, { footerColumns: null });
+    expect((await letterhead.loadLetterhead()).options?.footerColumns).toBeNull();
+  });
+
   it("ohne Momentaufnahme (ältere Belege) gilt der aktuelle Briefkopf", async () => {
     await letterhead.saveAccentColor(actor, "#0055AA");
     expect(await letterhead.letterheadOf(null)).toEqual(await letterhead.loadLetterhead());

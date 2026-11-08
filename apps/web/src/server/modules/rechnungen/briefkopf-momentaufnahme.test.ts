@@ -78,7 +78,7 @@ describe.skipIf(!testDatabaseUrl)("Gestaltung beim Festschreiben (Postgres)", ()
     });
 
   const redesign = async () => {
-    await stammdaten.saveDesign(actor, { accent: "#9B1C1C", foldMarks: false, customerNumber: false });
+    await stammdaten.saveDesign(actor, { accent: "#9B1C1C", foldMarks: false, customerNumber: false, footerColumns: ["Neue Fußzeile", "{email}"] });
     await stammdaten.removeLogo(actor);
   };
 
