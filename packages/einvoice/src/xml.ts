@@ -5,6 +5,7 @@ import {
   formatPercent,
   lineAmount,
   netOf,
+  plainFormattedText,
   skontoPaymentTerms,
   TAX_TREATMENTS,
   treatmentNote,
@@ -152,7 +153,7 @@ export function toEInvoiceData(doc: InvoiceDocument): Invoice {
       ...(allowance ? { "cac:AllowanceCharge": [allowance] } : {}),
       "cac:Item": {
         // Beschreibung (BT-154) steht im UBL-Schema vor dem Namen (BT-153)
-        ...(line.detail?.trim() ? { "cbc:Description": line.detail.trim() } : {}),
+        ...(line.detail?.trim() ? { "cbc:Description": plainFormattedText(line.detail.trim()) } : {}),
         "cbc:Name": line.description,
         "cac:ClassifiedTaxCategory": categoryWithRate(doc, line.taxRate, "line") as InvoiceLine["cac:Item"]["cac:ClassifiedTaxCategory"],
       },
@@ -269,7 +270,7 @@ export function toEInvoiceData(doc: InvoiceDocument): Invoice {
   }
 
   // Einleitung und Hinweis als Freitext zur Rechnung (BT-22), in der Reihenfolge wie auf dem PDF
-  const notes = [doc.intro, doc.note].map((n) => n?.trim() ?? "").filter(Boolean);
+  const notes = [doc.intro, doc.note].map((n) => plainFormattedText(n?.trim() ?? "")).filter(Boolean);
   if (notes.length > 0) invoice["cbc:Note"] = notes;
 
   // BR-IC-12: Bei der innergemeinschaftlichen Lieferung ist das Lieferland (BT-80) Pflicht, mit der Lieferanschrift

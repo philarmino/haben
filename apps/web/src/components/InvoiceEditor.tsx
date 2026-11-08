@@ -56,6 +56,7 @@ import { LineExtras } from "./LineExtras.tsx";
 import { parsePlanRows, PaymentPlanFields, toPlanRows } from "./PaymentPlanFields.tsx";
 import { parseSkontoRows, SkontoFields, toSkontoRows } from "./SkontoFields.tsx";
 import { TextBlockField, type TextBlockOption } from "./TextBlockField.tsx";
+import { FormattingHint } from "./FormattedText.tsx";
 
 interface ContactOption {
   id: string;
@@ -974,6 +975,7 @@ export function InvoiceEditor({
 
           <section className="card" aria-labelledby="lines-heading">
             <h2 id="lines-heading">Positionen</h2>
+            <FormattingHint />
             <TextBlockField
               label="Einleitung über den Positionen (optional)"
               kind="kopf"

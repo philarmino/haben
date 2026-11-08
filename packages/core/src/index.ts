@@ -62,6 +62,7 @@ export * from "./lebenszyklus.ts";
 export * from "./email-list.ts";
 export * from "./telefon.ts";
 export * from "./accent.ts";
+export * from "./text-format.ts";
 export * from "./number-format.ts";
 export * from "./steuerbescheinigung.ts";
 export * from "./steuerzahlung.ts";
