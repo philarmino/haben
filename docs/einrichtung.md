@@ -38,7 +38,7 @@ Deine Steuerberatung bekommt auf Wunsch einen eigenen Zugang, der nur lesen kann
 
 ## Einstellungen und Darstellung
 
-Die **Einstellungen** (unten links in der Navigation) sind in Bereiche geteilt: **Firma**, **Persönliche Angaben**, **Rechnungen** (Nummernkreis, Nummernformat, Vorlagen für den Zahlungsplan, Kundennummern), **Gestaltung** (Logo, Akzentfarbe, Logo und Blatt, Layouts), **ELSTER** (Zertifikat, ERiC), **E-Mail** (Versand, Belege-Postfach), **Bank** (automatischer Kontoabruf), **Sicherheit** (Passkeys, Zugänge), **Fremdwährung** (Umrechnungskurse), **KI-Assistenten und API** (MCP, [REST-API](api.md), Belegauslesung), **Eigene Seiten** ([eigene Werkzeuge im Menü](eigene-seiten.md)) und **Export** (Jahresarchiv, DATEV, Änderungsprotokoll prüfen, Backup). Links aus der App, etwa „Zertifikat hochladen“ in der Übersicht, führen direkt in den passenden Bereich; die Adresse lautet dann z. B. `/einstellungen?bereich=elster`. Darunter öffnet **Dokumentation** diese Seiten in einem neuen Tab.
+Die **Einstellungen** (unten links in der Navigation) sind in Bereiche geteilt: **Firma**, **Persönliche Angaben**, **Rechnungen** (Nummernkreis, Nummernformat, Vorlagen für den Zahlungsplan, Kundennummern), **Beleggestaltung** (Logo, Akzentfarbe, Logo und Blatt, Layouts), **ELSTER** (Zertifikat, ERiC), **E-Mail** (Versand, Belege-Postfach), **Bank** (automatischer Kontoabruf), **Sicherheit** (Passkeys, Zugänge), **Fremdwährung** (Umrechnungskurse), **KI-Assistenten und API** (MCP, [REST-API](api.md), Belegauslesung), **Eigene Seiten** ([eigene Werkzeuge im Menü](eigene-seiten.md)) und **Export** (Jahresarchiv, DATEV, Änderungsprotokoll prüfen, Backup). Links aus der App, etwa „Zertifikat hochladen“ in der Übersicht, führen direkt in den passenden Bereich; die Adresse lautet dann z. B. `/einstellungen?bereich=elster`. Darunter öffnet **Dokumentation** diese Seiten in einem neuen Tab.
 
 Ebenfalls unten links wählst du das **Theme**: Wald (Grün, Standard), Ozean, Pflaume, Graphit, die dunklen Themes Nacht und Tiefsee oder **Automatisch**, das je nach Systemeinstellung zwischen Wald und Nacht wechselt. Die Wahl gilt für diesen Browser und wird dort gespeichert, nicht auf dem Server; auf einem anderen Gerät wählst du sie neu. Rechnungen und PDFs bleiben in jedem Theme gleich.
 
@@ -96,7 +96,7 @@ Mehr zu den Pflichtangaben auf Rechnungen steht in [Rechnungen](rechnungen.md).
 
 ### Logo
 
-Unter **Einstellungen › Gestaltung › Logo** lädst du dein Logo hoch, als PNG (gern mit transparentem Hintergrund) oder JPEG bis 1 MB.
+Unter **Einstellungen › Beleggestaltung › Logo** lädst du dein Logo hoch, als PNG (gern mit transparentem Hintergrund) oder JPEG bis 1 MB.
 
 - Es steht oben im Briefkopf von Rechnungen, Angeboten und Mahnungen, ohne Verzerrung; Größe und Seite stellst du unter [Logo und Blatt](#logo-und-blatt) ein.
 - Die Vorschau im Rechnungs- und Angebotseditor zeigt es ebenfalls.
@@ -105,7 +105,7 @@ Unter **Einstellungen › Gestaltung › Logo** lädst du dein Logo hoch, als PN
 
 ### Akzentfarbe
 
-Unter **Einstellungen › Gestaltung › Akzentfarbe** stellst du die Farbe der Spaltenköpfe und Linien ein, etwa passend zu deinem Logo. Ab Werk ist es das Grün `#1F6F5C`.
+Unter **Einstellungen › Beleggestaltung › Akzentfarbe** stellst du die Farbe der Spaltenköpfe und Linien ein, etwa passend zu deinem Logo. Ab Werk ist es das Grün `#1F6F5C`.
 
 - Text, Adressen, Beschriftungen, Positionen, dünne Linien und Fußzeile stehen in Grautönen, die Haben aus der Akzentfarbe ableitet: gleiche Helligkeit wie ab Werk, aber mit ihrem Farbton. Bei Blau sind sie leicht bläulich, bei einer grauen Akzentfarbe neutral grau; mit dem Standardgrün bleibt alles wie bisher.
 - Du wählst sie mit dem Farbfeld oder trägst sie als Hex-Wert in der Form `#RRGGBB` ein; **Auf Standard zurücksetzen** stellt das Grün wieder her.
@@ -116,7 +116,7 @@ Unter **Einstellungen › Gestaltung › Akzentfarbe** stellst du die Farbe der 
 
 ### Logo und Blatt
 
-Unter **Einstellungen › Gestaltung › Logo und Blatt** oder über das Zahnrad in der [Vorschau](rechnungen.md#vorschau) legst du fest, wie das Blatt aussieht. Es gilt für Rechnungen und Angebote, die ab dann festgeschrieben werden, und für deren Mahnung, Auftragsbestätigung und Lieferschein.
+Unter **Einstellungen › Beleggestaltung › Logo und Blatt** oder über das Zahnrad in der [Vorschau](rechnungen.md#vorschau) legst du fest, wie das Blatt aussieht. Es gilt für Rechnungen und Angebote, die ab dann festgeschrieben werden, und für deren Mahnung, Auftragsbestätigung und Lieferschein.
 
 | Einstellung | Bedeutung |
 | --- | --- |
@@ -131,7 +131,7 @@ Pflichtangaben und Summen lassen sich nicht ausblenden.
 
 ### Layouts
 
-Unter **Einstellungen › Gestaltung › Layouts** siehst du, welches Layout jede Belegart bekommt. Noch gibt es nur das eingebaute Layout „Klassisch“. Weitere Layouts und eigene Vorlagen sind [geplant](roadmap.md).
+Unter **Einstellungen › Beleggestaltung › Layouts** siehst du, welches Layout jede Belegart bekommt. Noch gibt es nur das eingebaute Layout „Klassisch“. Weitere Layouts und eigene Vorlagen sind [geplant](roadmap.md).
 
 ## Persönliche Angaben
 
